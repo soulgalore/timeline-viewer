@@ -13,7 +13,8 @@ class Utils {
     return new Promise((resolve, reject) => {
       // Use an XHR rather than fetch so we can have progress events
       const xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
+      xhr.withCredentials = false;
+      xhr.responseType = 'arraybuffer';
       xhr.open(method, url);
       addRequestHeaders && addRequestHeaders(xhr);
       // show progress only while getting data
